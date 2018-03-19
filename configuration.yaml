@@ -112,6 +112,7 @@ weblink: !include weblinks.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 input_boolean: !include input_boolean.yaml
+zone: !include zones.yaml
 
 #calendar:
   #- platform: todoist
