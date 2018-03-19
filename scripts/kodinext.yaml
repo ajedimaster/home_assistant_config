@@ -1,0 +1,5 @@
+  alias: kodi next
+  sequence:
+    - service: media_player.media_next_track
+      data:
+        entity_id: media_player.kodi

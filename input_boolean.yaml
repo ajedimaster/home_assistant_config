@@ -1,0 +1,4 @@
+input_bedroomtv:
+  name: Bedroom TV
+  initial: off
+  icon: mdi:television

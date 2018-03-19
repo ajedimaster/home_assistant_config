@@ -1,0 +1,5 @@
+  alias: jarvis back
+  sequence:
+    - service: media_player.media_previous_track
+      data:
+        entity_id: media_player.jarvis

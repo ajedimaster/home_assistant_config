@@ -1,0 +1,15 @@
+kodi_n: >
+  curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"Player.GoTo","id":1,"params":{"playerid":1,"to":"previous"}}' http://192.168.1.10:8080/jsonrpc
+kodi_p: >
+  curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"Player.GoTo","id":1,"params":{"playerid":1,"to":"next"}}' http://192.168.1.10:8080/jsonrpc
+
+  
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"Player.Open","params":{"item":{"playlistid":1},"options":{"repeat":"all"}}}' http://192.168.1.11:8080/jsonrpc
+
+curl -X POST -H "Content-Type: application/json" -d '{ "jsonrpc": "2.0", "method": "Player.Open", "params": { "item": { "path": "special://profile/playlists/video/bedtime.xsp"  } }, "id": 1 }' http://192.168.1.98:8080/jsonrpc
+
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "id": 1, "method": "Player.Open", "params": {"item": {"playlistid": 0}}}' http://192.168.1.11:8080/jsonrpc
+
+curl -X POST -H "Content-Type: application/json" -d  '{"jsonrpc": "2.0", "method": "Player.Open", "params": { "item": {"file":"special://profile/playlists/video/Bedtime.xsp"} }, "id": 1}'  http://192.168.1.11:8080/jsonrpc
+
+curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "id": 1, "method": "Player.Open", "params": {"item": {"playlistid": 0}}}' http://192.168.1.98:8080/jsonrpc

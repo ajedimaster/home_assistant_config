@@ -1,0 +1,9 @@
+  alias: Inactive
+  sequence:
+    - service: switch.turn_on
+      data: 
+        entity_id: switch.camera_pan         
+    - service: script.turn_on
+      data:
+        entity_id: script.camera_switch_off       
+

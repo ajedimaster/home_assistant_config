@@ -1,0 +1,12 @@
+media_player.apple_tv:
+  platform: apple_tv
+  unique_id: dd39ce1fea64ef386a915fc862bc287d57bb7629a960ebc69ec9b8f3a122299b
+remote.apple_tv:
+  platform: apple_tv
+  unique_id: dd39ce1fea64ef386a915fc862bc287d57bb7629a960ebc69ec9b8f3a122299b
+light.hue_white_lamp_2:
+  platform: hue
+  unique_id: 00:17:88:01:02:c4:f2:2c-0b
+light.hue_white_lamp_1:
+  platform: hue
+  unique_id: 00:17:88:01:02:c4:c0:0f-0b

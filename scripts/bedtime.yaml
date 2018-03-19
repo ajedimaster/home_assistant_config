@@ -1,0 +1,10 @@
+  alias: Bedtime
+  sequence:
+    #Turn on Menu Switch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.netflix
+    - wait_template: "{{is_state('media_player.kodi', 'idle')}}"
+    - service: switch.turn_on
+      data:
+        entity_id: switch.kodi_bedtime

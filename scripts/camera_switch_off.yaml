@@ -1,0 +1,6 @@
+  alias: Off
+  sequence:
+    #- delay: 00:10
+    - service: switch.turn_off
+      data:
+        entity_id: switch.camera

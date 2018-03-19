@@ -1,0 +1,126 @@
+- action:
+  - data:
+      message: BRRRRRR it's cold in here!
+    service: persistent_notification.create
+  alias: Too Cold
+  condition: []
+  id: '1519492448014'
+  trigger:
+  - above: '0'
+    below: '20'
+    entity_id: sensor.broadlink_sensor_temperature
+    platform: numeric_state
+- action:
+  - data:
+      message: It's getting hot in here!
+    service: persistent_notification.create
+  alias: Too Hot
+  condition: []
+  id: '1519492611884'
+  trigger:
+  - above: '22'
+    below: '40'
+    entity_id: device_tracker.broadlink
+    platform: numeric_state
+- action:
+  - data:
+      message: Foscam Offline
+    service: notify.pushbullet
+  alias: Foscam Offline
+  condition: []
+  id: '1519494550062'
+  trigger:
+  - entity_id: device_tracker.foscam
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      message: Jarvis Offline
+    service: notify.pushbullet
+  alias: Jarvis Offline
+  condition: []
+  id: '1519494550262'
+  trigger:
+  - entity_id: device_tracker.pi_jarvis
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      message: Pi-Hole Offline
+    service: notify.pushbullet
+  alias: Pi-Hole Offline
+  condition: []
+  id: '1519494550262'
+  trigger:
+  - entity_id: device_tracker.pi_pihole
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      entity_id: switch.tv
+    service: switch.turn_on
+  alias: TV State Check
+  condition:
+  - condition: state
+    entity_id: device_tracker.philips_tv
+    state: not_home
+  id: '1519495222376'
+  trigger:
+  - entity_id: input_boolean.input_bedroomtv
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      entity_id: switch.tv
+    service: switch.turn_off
+  alias: TV State Check 2
+  condition:
+  - condition: state
+    entity_id: device_tracker.philips_tv
+    state: home
+  id: '1519495222379'
+  trigger:
+  - entity_id: input_boolean.input_bedroomtv
+    from: 'on'
+    platform: state
+    to: 'off'
+- action:
+  - data:
+      entity_id: input_boolean.input_bedroomtv
+    service: homeassistant.turn_off
+  alias: TV State Check 3
+  condition: []
+  id: '1519495905579'
+  trigger:
+  - entity_id: device_tracker.philips_tv
+    from: home
+    platform: state
+    to: not_home
+- action:
+  - data:
+      entity_id: input_boolean.input_bedroomtv
+    service: homeassistant.turn_on
+  alias: TV State Check 4
+  condition: []
+  id: '1519495915579'
+  trigger:
+  - entity_id: device_tracker.philips_tv
+    from: not_home
+    platform: state
+    to: home
+- action:
+  - data:
+      entity_id: switch.bedtime
+    service: homeassistant.turn_off
+  alias: Stop Bedtime
+  condition: []
+  id: '1519496189667'
+  trigger:
+  - entity_id: device_tracker.philips_tv
+    from: home
+    platform: state
+    to: not_home

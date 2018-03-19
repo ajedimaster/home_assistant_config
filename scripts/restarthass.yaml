@@ -1,0 +1,4 @@
+  alias: Config Update
+  sequence:
+    - alias: Restart Home Assistant
+      service: homeassistant.restart

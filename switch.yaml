@@ -1,0 +1,96 @@
+  - platform: broadlink
+    host: 192.168.1.15
+    mac: 34:EA:34:E4:72:7B
+    monitored_conditions:
+      - 'temperature'
+    switches:
+    #plug1
+      plug1:
+        friendly_name: "Camera"
+        command_on: 'shEyAAYUBRQFFAUUBRQRCAUTEQgFFBIIBRQRCAUUEQgFFBEIBRQFExIIEggFFAUTEggRCAW6AAAAAAAA'
+        command_off: 'siIyAAYTBhQFEwYTBhMSBwYUEgcGExIHBhMSBwYTEgcGExIHBhMGExIIEgcSBxIHBhMGEwa6AAAAAAAA' 
+    #plug2
+      plug2:
+        friendly_name: "Plug 2"
+        command_on: 'shwyAAYTBhMGEwYTBhMSBwYUEggGExIHBhMSBwYTEgcGExIHEgcSBwYUBhQGFAYUEgcSCAa8AAAAAAAA'
+        command_off: 'shAyAAYUBhQGFAYTBhQSCAYTEggGFBIHBhQSCAYUEgcGExIIEgcSBwYUBhQSCBEIBRQGFAa9AAAAAAAA'
+    #plug3
+      plug3:
+        friendly_name: "Plug 3"
+        command_on: 'sgkyAAYUBhQGFAYUBhQSBwYUEggFFBIIBhQSBwYTEgcSCBIHBhMGFAYUBhQGEwYUEgcSBwa8AAAAAAAA'
+        command_off: 'shoyAAYTBhMGEwYUBhMSBwYTEgcGExIHBhMSBwYTEgcSBxIHBhMGEwYTBhMSBxIHBhMGFAa8AAAAAAAA'  
+    #plug4LG TV
+      plug4:
+        friendly_name: "Plug 4"
+        command_on: 'shUyAAYTBhQGFAYUBhQSBwYTEgcGFBIHBhMSCBIIEggGFBIHBhQGEwYUBhMGEwYUEgcSBwa9AAAAAAAA'
+        command_off: 'sg4yAAYUBhQGEwYTBhQSBwYUEgcGExIIBhQSCBIIEgcGExIHBhQGFAYUBhQSBxIIBhMGEwa9AAAAAAAA'
+    #plug3
+      plug5:
+        friendly_name: "Plug 5"
+        command_on: 'sgDAABIHBRISBwUTEQcSBhIGBhMRBwUTEQcGEwUTBRMFEwUTBRMSBxEHBbwFEwYSBhMFEwUTEQcGEhIHBRMRBxEHEgYFExIHBRMRBwUTBRMFEwYTBRMFExEHEQcGvAUTBRMFEwYSBhMRBwUTEQcFExIHEQcRBwUTEQcGEhIHBRMFEwUTBRMFFAUTEQcRBwW8BhMFEwUTBRMFExIGBhMRBwUTEQcGEhIGBhMRBwUTEQcFFAUTBRMFEwUTBRMFEwYTBQAF3AAAAAAAAAAA'
+        command_off: 'sgDuABEHBRMRBxIHEQcFExEHBRMSBwUTBRMFEwUTEQcSBgYSBhMFvAYSBhMFEwUTBRMSBgYSEgcFExEHEQcSBgYSEgYGExEHBRMGEgYTBRMRBxEHBRMGEga8BRMFEwUTBRMGEhIHBRMRBwUTEgYSBhIHBRMRBwYSEgYGEgYTBRMFExIHEQcFEwUTBbwFEwYSBhMFEwUTEQcFExIGBhMRBxEHEQcGEhIHBRMRBwUTBRMGEgYTEQcRBwUTBRMGvAUTBRMFEwYSBRMSBwUTEQcFExIGEgcRBwUTEQcGEhIHBRIGEwUTBRMRBxIGBhMFEwUABdwAAAAAAAAAAAAA'
+      #LG TV
+      tv_lg:
+        friendly_name: "LG TV"
+        command_on: 'JgBwAAABJZUQFBAVEDkRFBAVEBQRFBAVEDkQOhAUEDoQORA5ETkQORAVEBQRFBA6EBQQFRAVEBQQOhA5EDkRFBA6EDkQNxI6EAAFJQABJUwQAAxQAAElSxAADFAAASVMEAAMTwABJUwQAAxQAAElSxAADQUAAAAAAAAAAA=='
+        command_off: 'JgBwAAABJZUQFBAVEDkRFBAVEBQRFBAVEDkQOhAUEDoQORA5ETkQORAVEBQRFBA6EBQQFRAVEBQQOhA5EDkRFBA6EDkQNxI6EAAFJQABJUwQAAxQAAElSxAADFAAASVMEAAMTwABJUwQAAxQAAElSxAADQUAAAAAAAAAAA=='
+      #PhilipsTV
+      tv_philips:
+        friendly_name: "TV"
+        command_on: 'JgCoAFYfDR4MEQwRKi0ODw4PDg8NDw8PDRANEA0QDQ8OEA0PHQ8NHg4PDgAKwlYfDB8NEA0QKi0NEA0QDRANEA0QDRANEA0QDBEMEQwRGxANHwwQDQAKw1YfDR4NEA0QKi4MEQwRDBEMEQwQDRANEA0QDRANEA0QGxEMHwwRDAAKxFUfDR8MEQwRKS4NEA0QDBEMEQwRDBEMEQwRDBEMEA0QHBANHg0QDQANBQ=='
+        command_off: 'JgCoAFYfDR4MEQwRKi0ODw4PDg8NDw8PDRANEA0QDQ8OEA0PHQ8NHg4PDgAKwlYfDB8NEA0QKi0NEA0QDRANEA0QDRANEA0QDBEMEQwRGxANHwwQDQAKw1YfDR4NEA0QKi4MEQwRDBEMEQwQDRANEA0QDRANEA0QGxEMHwwRDAAKxFUfDR8MEQwRKS4NEA0QDBEMEQwRDBEMEQwRDBEMEA0QHBANHg0QDQANBQ=='
+      #Netflix
+      tv_philips_netflix:
+        friendly_name: "Netflix"
+        command_on: 'JgDIAFcdDx0PDg8OLCsPDg8ODw4PDg8ODw4PDg8OHQ4PDg8cHg4PHA8ACsFYHQ8cDw4PDiwsDw4ODw4ODw4PDg8ODw4PDh4ODw4PHB0ODx0PAArBWB0PHA8ODw4sKw8ODw4PDg8ODw4PDg8ODw4dDg8ODxweDg8cDwAKwVgdDx0ODw4OLSsPDg8ODw4PDg8ODw4ODw4OHg4PDg8cHg4PHA8ACsFYHQ8cDw4PDiwrDw4PDg8ODw4PDg8ODw4PDh4ODw4PHB0ODx0PAA0F'
+        command_off: ''
+       #PhilipsTV Smart Menu
+      tv_philips_menu:
+        friendly_name: "Menu"
+        command_on: 'JgCYAFgdDxwPDg8OLCwODw4PDg4PDg8ODw4PDg8OHhwdHR0dDw4PAArCWB0PHQ4ODw4sLA8ODw4PDg8ODw4PDg4PDg8dHB4cHhwPDg8ACsNXHQ8dDw4PDiwrDw4PDg8ODw4PDg8ODw4PDh0dHRweHA8ODwAKw1gdDxwPDg8OLCsPDg8ODw4PDg8ODw4PDg8OHR0dHR0dDg4PAA0F'
+        command_off: ''
+      #PhilipsTV Down
+      tv_philips_down:
+        friendly_name: "Down"
+        command_on: 'JgB4AFgdDxwPDg8ODx0eDg8ODw4PDg8ODw4PDg8ODw4dHR0ODx0ODx0ACtFXHg4dDw4ODw4eHQ4PDg8ODw4PDg8ODw4PDg8OHR0dDw4dDw4dAArRVx4OHQ8ODw4PHR0ODw4PDg8ODw4PDg8ODw4PDh4cHQ8OHQ8OHQANBQ=='
+        command_off: ''
+      #PhilipsTV Select
+      tv_philips_select:
+        friendly_name: "Select"
+        command_on: 'JgB4AFgdDxwPDg8OLCwSCg8PDg8ODxIKDw4PDg8OHhwdDxANDh0PDg8ACsJbGhIZDw4ODywrDw4PDhEMEQwPDg8ODw4PDh0dHQ4PDhIZDw4PAArCWB0PHBIKEA4sKw8ODw4PDg8ODw4RDA8ODw4dHR4NDw4PHA8ODwANBQ=='
+        command_off: ''
+      #PhilipsTV Source
+      tv_philips_source:
+        friendly_name: "Source"
+        command_on: 'JgCEAFgdDxwPDg8ODx0dDg8PDg4PDg8ODw4PDg8ODw4PDh4ODw4PHA8ODw4PAArCWB0PHA8ODw4PHR0ODw8ODw4PDg8ODw4PDg8ODw4OHg4PDg8cDw4PDg8ACsJYHQ8cDw4PDg8dHg4ODw8ODg8PDg8ODg8ODw4PDg8dDg8ODxwPDg8ODwANBQAAAAA='
+        command_off: ''
+      #Xbox
+      xbox:
+        friendly_name: "Xbox"
+        command_on: 'JgBQAAABI5ESExMSEhMTEhITEhMSExI3EhITEhITEjcSNxITEjcSNxITEjcSEhI3EhMSNxQREhMSNxITEjcSExI2EhMSNxI3EgAFiwABI0kSAA0FAAAAAAAAAAA='
+        command_off: 'JgBQAAABIpISExISEhMSExMSEhMSExA5EhMSEhMSEjcUNRYPEjcSNxI3EhMSEhI3EhMSNxITEBURFBI2EzYSExI3EhMSNxI3EgAFigABI0kSAA0FAAAAAAAAAAA='
+      
+        
+
+#Turns on Bedroom Playlist for Kodi
+  - platform: command_line
+    switches: 
+      kodi_bedtime: 
+        command_on: curl -X POST -H "Content-Type:application/json" -d  '{"jsonrpc":"2.0", "method":"Player.Open", "params":{"item":{"file":"special://profile/playlists/video/Bedtime.xsp"} }, "id":1}'  http://192.168.1.11:8080/jsonrpc
+        command_off: ""
+      camera_pan:
+        command_off: !secret camera_pan_off_url
+        command_on:  !secret camera_pan_on_url
+      camera_y:
+        command_off: !secret camera_y_off_url
+        command_on: !secret camera_y_on_url
+      camera_x:
+        command_off: !secret camera_x_off_url
+        command_on: !secret camera_x_on_url
+      camera_pan_y:
+        command_off: !secret camera_pan_y_off_url
+        command_on: !secret camera_pan_y_on_url
+      camera_pan_x:
+        command_off: !secret camera_pan_x_off_url
+        command_on: !secret camera_pan_x_on_url
+

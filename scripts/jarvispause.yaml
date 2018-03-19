@@ -1,0 +1,5 @@
+  alias: jarvis pause
+  sequence:
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.jarvis

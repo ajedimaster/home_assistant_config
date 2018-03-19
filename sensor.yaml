@@ -1,0 +1,109 @@
+  - platform: speedtest
+    minute: 30
+    hour:
+      - 0
+      - 6
+      - 12
+      - 18
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+  - platform: pi_hole
+    host: 192.168.1.1
+#  - platform: waqi
+ #   locations:  
+  #    - 'City of London - Farringdon Street'
+#  - platform: xbox_live
+#    api_key: 76493fdf03d42783eab54bca2ff87bb627306695
+#    xuid:
+#      - 'A Jedi Master'
+#      - 'ATokenMinority'
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: processor_use
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: since_last_boot
+#Broadlink Temperature      
+  - platform: broadlink
+    update_interval: 60
+    host: 192.168.1.15
+    mac: 34:EA:34:E4:72:7B
+    monitored_conditions:
+      - temperature
+#Templates      
+  - platform: template
+    sensors:
+      pihole_status:
+        friendly_name: 'Pi-Hole'
+        value_template: >-
+            {%- if is_state("device_tracker.pi_pihole", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      jarvis_status:
+        friendly_name: 'Jarvis'
+        value_template: >-
+            {%- if is_state("device_tracker.pi_jarvis", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      bedroomtv_status:
+        friendly_name: 'Bedroom TV'
+        value_template: >-
+            {%- if is_state("device_tracker.philips_tv", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      lgtv_status:
+        friendly_name: 'LG TV'
+        value_template: >-
+            {%- if is_state("device_tracker.lg_tv", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      broadlink_status:
+        friendly_name: 'Broadlink'
+        value_template: >-
+            {%- if is_state("device_tracker.broadlink", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      tplink_status:
+        friendly_name: 'TP Switch'
+        value_template: >-
+            {%- if is_state("device_tracker.tp_switch", "home") %}
+                Online
+            {% else %}
+                Offline
+            {%- endif %}
+      foscam_status:
+       friendly_name: 'Foscam'
+       value_template: >-
+           {%- if is_state("device_tracker.foscam", "home") %}
+               Online
+           {% else %}
+               Offline
+           {%- endif %}
+ #Command Line
+  - platform: command_line
+    name: SSL cert expiry
+    unit_of_measurement: days
+    scan_interval: 86400
+    command: !secret sensor_command
+    value_template: ‘{{ value }}’
+    
+  - platform: cert_expiry
+    name: ssl_check
+    host: !secret cert_url

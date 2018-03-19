@@ -1,0 +1,13 @@
+  - platform: kodi
+    host: 192.168.1.11
+    turn_off_action: quit
+  - platform: kodi
+    host: 192.168.1.10
+    name: Jarvis
+  - platform: kodi
+    host: 192.168.1.98
+    name: Surface
+    #  - platform: webostv
+     #host: 192.168.1.99
+     #mac:C8:02:10:BC:09:E6
+     #name: Living Room TV
