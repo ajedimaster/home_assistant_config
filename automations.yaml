@@ -1,15 +1,15 @@
-- action:
+- id: '1519492448014'
+  alias: Too Cold
+  trigger:
+  - above: '0'
+    below: '18'
+    entity_id: sensor.broadlink_sensor_temperature
+    platform: numeric_state
+  condition: []
+  action:
   - data:
       message: BRRRRRR it's cold in here!
     service: persistent_notification.create
-  alias: Too Cold
-  condition: []
-  id: '1519492448014'
-  trigger:
-  - above: '0'
-    below: '20'
-    entity_id: sensor.broadlink_sensor_temperature
-    platform: numeric_state
 - action:
   - data:
       message: It's getting hot in here!
@@ -34,18 +34,18 @@
     from: home
     platform: state
     to: not_home
-- action:
-  - data:
-      message: Jarvis Offline
-    service: notify.pushbullet
-  alias: Jarvis Offline
-  condition: []
-  id: '1519494550262'
+- id: '1519494550262'
+  alias: ESXi Offline
   trigger:
-  - entity_id: device_tracker.pi_jarvis
+  - entity_id: device_tracker.esxi
     from: home
     platform: state
     to: not_home
+  condition: []
+  action:
+  - data:
+      message: ESXi Offline
+    service: notify.pushbullet
 - action:
   - data:
       message: Pi-Hole Offline
@@ -124,3 +124,57 @@
     from: home
     platform: state
     to: not_home
+- id: '1537992149788'
+  alias: Night Light
+  trigger:
+  - event: sunset
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: switch.plug3
+    state: 'off'
+  action:
+  - data:
+      entity_id: switch.plug3
+    service: switch.turn_on
+- id: '1538060549731'
+  alias: Night Light Off
+  trigger:
+  - at: '23:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.plug3
+    service: switch.turn_off
+- id: '1541782860748'
+  alias: Night Light +5
+  trigger:
+  - event: sunset
+    offset: 00:05:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: switch.plug3
+    service: switch.turn_on
+- id: '1541782974770'
+  alias: Night Light Off -5
+  trigger:
+  - at: '22:55:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.plug3
+    service: switch.turn_off
+- id: '1541783014363'
+  alias: Night Light Off +5
+  trigger:
+  - at: '23:05:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.plug3
+    service: switch.turn_off

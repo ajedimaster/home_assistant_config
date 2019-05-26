@@ -65,6 +65,8 @@ emulated_hue:
     - media_player
     - script
     - switch
+    - light
+    - group
     
 #Philips Hue
 hue:
@@ -74,7 +76,7 @@ hue:
     
 # Text to speech
 tts:
-  platform: google
+  platform: google_translate
   
 mqtt:
   broker: !secret mqtt_broker
@@ -113,6 +115,7 @@ group: !include groups.yaml
 automation: !include automations.yaml
 input_boolean: !include input_boolean.yaml
 zone: !include zones.yaml
+scene: !include scenes.yaml
 
 #calendar:
   #- platform: todoist
@@ -120,3 +123,26 @@ zone: !include zones.yaml
     #custom_projects:
      #- name: 'Alexa Shopping List'
     
+google_assistant:
+  project_id: smart-home-5432a
+  #access_token: nRqdHZFILlcLpKWL
+  #agent_user_id: [a string to identify user]
+  #api_key: [a Homegraph API Key generated for the Google Actions project]
+  #entity_config:
+    #switch.kitchen:
+      #name: Custom Name for Google Assistant
+      #aliases:
+        #- bright lights
+        #- entry lights
+    #light.living_room:
+      #expose: false
+      #room: living room
+    
+    
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload    

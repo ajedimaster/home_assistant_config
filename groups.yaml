@@ -2,15 +2,14 @@ default_view:
   view: yes
   entities:
     - group.housemates
-    - group.switches
+    - group.Switches
     - group.network
     - group.lights
-#    - group.ToDo
     - sun.sun
-    #- sensor.waqi_city_of_london__farringdon_street
     - sensor.broadlink_sensor_temperature
     - sensor.ssl_check
     - input_boolean.notify_home
+    - group.downstairs
 
     
 Kodi:
@@ -19,10 +18,8 @@ Kodi:
     - group.mediakodi
     - group.mediasurface
     - group.mediajarvis
-    - script.bedtime
     - switch.lg_tv
     - group.Devices
-   
     
 Devices:
     - input_boolean.input_bedroomtv
@@ -33,7 +30,7 @@ Devices:
     #- switch.select
     #- switch.source
     - script.sleep
-    
+
 
 Hadmin:
   view: yes
@@ -44,15 +41,12 @@ Hadmin:
     
 Status:
     - script.restarthass
-    - sensor.cpu_use
-    - sensor.disk_use_home
-    - sensor.ram_free
-    - sensor.since_last_boot
     
 Monitoring:
-    - sensor.pihole_status
-    - weblink.pihole
-    - sensor.jarvis_status
+#    - sensor.pihole_status
+ #   - weblink.pihole
+    - sensor.esxi_status
+    - switch.WOL
     - sensor.broadlink_status
     - sensor.tplink_status    
     - sensor.foscam_status
@@ -64,20 +58,24 @@ Housemates:
   - device_tracker.nexus_nexus
 
 Network:
-    - sensor.pihole
+#    - sensor.pihole
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
 
 Switches:
-  - switch.plug_2
-  - switch.plug_3
-  - switch.plug_4
-  - switch.plug_5
+  - switch.plug2
+  - switch.plug3
+  
+Downstairs:
+  - switch.plug4
+  - switch.plug5
 
 Lights:
   - light.hue_white_lamp_1
   - light.hue_white_lamp_2
+  - light.hue_white_lamp_3
+
   
 #ToDo:
  # - calendar.alexa_shopping_list

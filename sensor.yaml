@@ -1,42 +1,21 @@
-  - platform: speedtest
-    minute: 30
-    hour:
-      - 0
-      - 6
-      - 12
-      - 18
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-  - platform: pi_hole
-    host: 192.168.1.1
-#  - platform: waqi
- #   locations:  
-  #    - 'City of London - Farringdon Street'
-#  - platform: xbox_live
-#    api_key: 76493fdf03d42783eab54bca2ff87bb627306695
-#    xuid:
-#      - 'A Jedi Master'
-#      - 'ATokenMinority'
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: processor_use
-      - type: network_in
-        arg: eth0
-      - type: network_out
-        arg: eth0
-      - type: since_last_boot
+#  - platform: speedtest
+#    minute: 30
+#    hour:
+#      - 0
+#      - 6
+#      - 12
+#      - 18
+#    monitored_conditions:
+#      - ping
+#      - download
+#      - upload
 #Broadlink Temperature      
   - platform: broadlink
-    update_interval: 60
-    host: 192.168.1.15
+    scan_interval: 60
+    host: 192.168.1.79
     mac: 34:EA:34:E4:72:7B
     monitored_conditions:
-      - temperature
+      - 'temperature'
 #Templates      
   - platform: template
     sensors:
@@ -48,10 +27,10 @@
             {% else %}
                 Offline
             {%- endif %}
-      jarvis_status:
-        friendly_name: 'Jarvis'
+      esxi_status:
+        friendly_name: 'ESXI Server'
         value_template: >-
-            {%- if is_state("device_tracker.pi_jarvis", "home") %}
+            {%- if is_state("device_tracker.esxi", "home") %}
                 Online
             {% else %}
                 Offline

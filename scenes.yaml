@@ -1,0 +1,5 @@
+- name: Bedtime Lighting
+  entities:
+    light.bedroom:
+      state: on
+      brightness: 50

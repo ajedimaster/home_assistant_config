@@ -1,8 +1,8 @@
   - platform: broadlink
-    host: 192.168.1.15
+    host: 192.168.1.79
     mac: 34:EA:34:E4:72:7B
-    monitored_conditions:
-      - 'temperature'
+    #monitored_conditions:
+    #  - 'temperature'
     switches:
     #plug1
       plug1:
@@ -94,3 +94,6 @@
         command_off: !secret camera_pan_x_off_url
         command_on: !secret camera_pan_x_on_url
 
+  - platform: wake_on_lan
+    mac_address: "78-F2-9E-91-22-12"
+    name: "WOL"
