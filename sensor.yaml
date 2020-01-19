@@ -1,14 +1,3 @@
-#  - platform: speedtest
-#    minute: 30
-#    hour:
-#      - 0
-#      - 6
-#      - 12
-#      - 18
-#    monitored_conditions:
-#      - ping
-#      - download
-#      - upload
 #Broadlink Temperature      
   - platform: broadlink
     scan_interval: 60
@@ -16,6 +5,8 @@
     mac: 34:EA:34:E4:72:7B
     monitored_conditions:
       - 'temperature'
+#ring
+  - platform: ring
 #Templates      
   - platform: template
     sensors:
@@ -36,17 +27,17 @@
                 Offline
             {%- endif %}
       bedroomtv_status:
-        friendly_name: 'Bedroom TV'
+        friendly_name: 'Living Room TV'
         value_template: >-
-            {%- if is_state("device_tracker.philips_tv", "home") %}
+            {%- if is_state("device_tracker.54_2a_a2_c8_0e_38", "home") %}
                 Online
             {% else %}
                 Offline
             {%- endif %}
-      lgtv_status:
-        friendly_name: 'LG TV'
+      huehub_status:
+        friendly_name: 'Philips Hue'
         value_template: >-
-            {%- if is_state("device_tracker.lg_tv", "home") %}
+            {%- if is_state("device_tracker.00_17_88_77_b9_69", "home") %}
                 Online
             {% else %}
                 Offline
@@ -75,14 +66,26 @@
            {% else %}
                Offline
            {%- endif %}
- #Command Line
-  - platform: command_line
-    name: SSL cert expiry
-    unit_of_measurement: days
-    scan_interval: 86400
-    command: !secret sensor_command
-    value_template: ‘{{ value }}’
-    
+      bintype:
+       entity_id: sensor.date
+       friendly_name: 'Rubbish Collection'
+       value_template: >-
+           {% set week = now().isocalendar()[1] %}
+           {% set week = week + 1 if now().isoweekday() > 1 else week %}
+           {{ 'Recycling, Food & Refuse' if week % 2 == 0 else 'Recycling, Food, Refuse, Glass & Garden' }}
+       icon_template: >-
+           {% set week = now().isocalendar()[1] %}
+           {% set week = week + 1 if now().isoweekday() > 1 else week %}
+           {{ 'mdi:trash-can-outline' if week % 2 == 0 else 'mdi:recycle' }}
   - platform: cert_expiry
     name: ssl_check
     host: !secret cert_url
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'

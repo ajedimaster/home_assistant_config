@@ -1,0 +1,14 @@
+'1558890563079':
+  alias: Turn on Kodi (Philips TV)
+  sequence:
+  - data:
+      command: am start -n org.xbmc.kodi/.Splash
+      entity_id: media_player.android_tv
+    service: androidtv.adb_command
+'1558890593480':
+  alias: New Script
+  sequence:
+  - data:
+      command: am start -n org.xbmc.kodi/.Splash
+      entity_id: media_player.android_tv
+    service: androidtv.adb_command

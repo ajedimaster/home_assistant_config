@@ -1,41 +1,42 @@
 sensor.pihole:
   icon: mdi:do-not-disturb
-  
 switch.xbox:
   icon: mdi:xbox
-  
 switch.netflix:
   icon: mdi:netflix
-  
 script.bedtime:
   icon: mdi:sleep
-  
 script.restarthass:
   icon: mdi:restart
-  
 sensor.speedtest_download:
   icon: mdi:download
-  
 sensor.speedtest_upload:
   icon: mdi:upload
-  
 sensor.speedtest_ping:
   icon: mdi:pulse
-
 switch.lg_tv:
   icon: mdi:television
-
 sensor.esxi_status:
   icon: mdi:server
-  
 sensor.broadlink_status:
   icon: mdi:remote
-  
 sensor.tplink_status:
   icon: mdi:switch
-  
 sensor.bedroomtv_status:
   icon: mdi:television
-  
 sensor.lgtv_status:
   icon: mdi:television
+switch.livingroom_tv_switch:
+  icon: mdi:television
+script.launchnetflix_philips:
+  icon: mdi:netflix
+  friendly_name: Launch Netflix
+script.launchkodi_philips:
+  icon: mdi:kodi
+  friendly_name: Launch Kodi
+person.luke:
+  entity_picture: /local/luke.jpg
+device_tracker.c4_6e_1f_64_8c_f4:
+  friendly_name: tp_switch
+device_tracker.54_2a_a2_c8_0e_38:
+  friendly_name: Living Room TV

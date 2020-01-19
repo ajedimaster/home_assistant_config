@@ -15,6 +15,7 @@ homeassistant:
 
 # Enables the frontend
 frontend:
+  themes: !include_dir_merge_named themes
 
 #add hassio settings
 hassio:
@@ -22,20 +23,21 @@ hassio:
 #add config to UI
 config:
 
+#add system health to UI
+system_health:
 
+#logs
 recorder:
   purge_keep_days: 3
 
 #HTTP
 http:
-  api_password: !secret http_password 
   base_url: !secret url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  #trusted_networks:
-  #  - 192.168.1.0/24
-  #ip_ban_enabled: True
-  #login_attempts_threshold: 3
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+  server_port: 443
 
 # Checks for available updates
 updater:
@@ -58,15 +60,16 @@ sun:
 #show map
 map:
 
-# Expose Alexa
-emulated_hue:
-  host_ip: 192.168.1.3
-  exposed_domains:
-    - media_player
-    - script
-    - switch
-    - light
-    - group
+# # Expose Alexa
+# emulated_hue:
+#   host_ip: 192.168.1.52
+#   listen_port: 80
+#   exposed_domains:
+#     - media_player
+#     - script
+#     - switch
+#     - light
+#     - group
     
 #Philips Hue
 hue:
@@ -77,23 +80,30 @@ hue:
 # Text to speech
 tts:
   platform: google_translate
-  
-mqtt:
-  broker: !secret mqtt_broker
-  port: 19532
-  client_id: home-assistant-1
-  keepalive: 60
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  
+  cache: true
+  time_memory: 300
+  base_url: https://k-2.duckdns.org
+  service_name: google_translate_say
+
+#MQTT
+#mqtt:
+#  broker: !secret mqtt_broker
+#  port: 19532
+#  client_id: home-assistant-1
+#  keepalive: 60
+#  username: !secret mqtt_username
+#  password: !secret mqtt_password
+
+#PushBullet
 notify:
   - name: Pushbullet
     platform: pushbullet
     api_key: !secret pushbullet_api
-    
+
+#Camera    
 camera:
   platform: foscam
-  ip: 192.168.1.16
+  ip: 192.168.1.62
   username: !secret foscam_username
   password: !secret foscam_password
   name: foscam
@@ -117,17 +127,14 @@ input_boolean: !include input_boolean.yaml
 zone: !include zones.yaml
 scene: !include scenes.yaml
 
-#calendar:
-  #- platform: todoist
-    #token: 45ac7f0ad16a40dc752635f00d4af7a73cb79c63
-    #custom_projects:
-     #- name: 'Alexa Shopping List'
-    
+#assistant     
 google_assistant:
   project_id: smart-home-5432a
+  service_account: !include service_account.json
+  report_state: true
   #access_token: nRqdHZFILlcLpKWL
   #agent_user_id: [a string to identify user]
-  #api_key: [a Homegraph API Key generated for the Google Actions project]
+  #api_key: !secret google_api
   #entity_config:
     #switch.kitchen:
       #name: Custom Name for Google Assistant
@@ -138,11 +145,17 @@ google_assistant:
       #expose: false
       #room: living room
     
-    
+#speedtest    
 speedtestdotnet:
   scan_interval:
     minutes: 30
   monitored_conditions:
     - ping
     - download
-    - upload    
+    - upload
+
+person:
+
+# ring:
+#   username: !secret ring_username
+#   password: !secret ring_password

@@ -1,64 +1,67 @@
+###############
+# Views
+###############
+
+
 default_view:
+  icon: mdi:home
   view: yes
   entities:
     - group.housemates
-    - group.Switches
-    - group.network
-    - group.lights
     - sun.sun
     - sensor.broadlink_sensor_temperature
-    - sensor.ssl_check
-    - input_boolean.notify_home
-    - group.downstairs
-
+    - sensor.hallway_sensor_temperature
+    - sensor.ssl_certificate_expiry
+    - group.Living_Room
+    - group.Dining_Room
     
+
+Devices:
+  view: yes
+  entities:
+    - group.lights
+    - group.Switches
+    - group.Doorbell
+
+
 Kodi:
   view: yes
   entities:
     - group.mediakodi
-    - group.mediasurface
-    - group.mediajarvis
-    - switch.lg_tv
-    - group.Devices
+    - group.Media
+    - group.mediaandroid
     
-Devices:
-    - input_boolean.input_bedroomtv
-    #- switch.netflix
-    - switch.xbox 
-    #- switch.menu
-    #- switch.down
-    #- switch.select
-    #- switch.source
-    - script.sleep
-
 
 Hadmin:
   view: yes
   entities: 
     - group.status
     - group.Monitoring
+    - group.network
 
-    
+
+###############
+# Groups
+###############
+
+
 Status:
     - script.restarthass
     
 Monitoring:
-#    - sensor.pihole_status
- #   - weblink.pihole
     - sensor.esxi_status
     - switch.WOL
     - sensor.broadlink_status
     - sensor.tplink_status    
     - sensor.foscam_status
     - sensor.bedroomtv_status
-    - sensor.lgtv_status    
+    - sensor.huehub_status
     
 Housemates:
-  - device_tracker.samantha
-  - device_tracker.nexus_nexus
+   - person.luke
+   - sensor.bintype   
 
 Network:
-#    - sensor.pihole
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.speedtest_ping
@@ -66,38 +69,58 @@ Network:
 Switches:
   - switch.plug2
   - switch.plug3
-  
-Downstairs:
   - switch.plug4
-  - switch.plug5
+  - switch.plug5  
 
 Lights:
   - light.hue_white_lamp_1
   - light.hue_white_lamp_2
   - light.hue_white_lamp_3
-
   
-#ToDo:
- # - calendar.alexa_shopping_list
-  
-mediakodi:
-  - media_player.kodi
+# mediakodi:
+#   - media_player.kodi
 
-mediajarvis:  
-  - media_player.jarvis
-
-mediasurface:
-  - media_player.surface
-  
+mediaandroid:
+  - media_player.android_tv
   
 CCTV:
   view: yes
   entities: 
     - switch.camera
-    #- script.camera_pan_inactive
     - switch.camera_pan
     - camera.foscam
     - switch.camera_y
     - switch.camera_x
     - switch.camera_pan_y
     - switch.camera_pan_x
+    - camera.front_door
+
+Media:
+    - switch.livingroom_tv_switch
+    - switch.xbox 
+    - script.launchkodi_philips
+    - script.launchnetflix_philips
+
+Doorbell:
+    - sensor.front_door_battery
+    - sensor.front_door_last_activity
+    - sensor.front_door_last_ding
+    - sensor.front_door_last_motion
+    - sensor.front_door_volume
+    - sensor.hallway_volume
+
+
+###############
+# Rooms
+###############
+
+    
+Living Room:
+  - light.hue_white_lamp_2  
+  - switch.livingroom_tv_switch
+  - media_player.android_tv
+  - sensor.broadlink_sensor_temperature
+
+Dining Room:
+  - light.hue_white_lamp_3
+  - sensor.hallway_sensor_temperature

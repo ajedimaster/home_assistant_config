@@ -1,0 +1,116 @@
+title: Home
+views:
+  - path: default_view
+    title: default_view
+    badges:
+      - entity: sensor.ssl_certificate_expiry
+      - entity: sun.sun
+    cards:
+      - type: entities
+        entities:
+          - person.luke
+          - sensor.bintype
+        title: Housemates
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.hue_white_lamp_2
+          - switch.livingroom_tv_switch
+          - sensor.broadlink_sensor_temperature
+        title: Living Room
+        show_header_toggle: true
+      - type: media-control
+        entity: media_player.android_tv
+      - type: entities
+        entities:
+          - light.hue_white_lamp_3
+          - sensor.hallway_sensor_temperature
+        title: Dining Room
+        show_header_toggle: true
+    icon: 'mdi:home'
+  - path: devices
+    title: Devices
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - light.hue_white_lamp_1
+          - light.hue_white_lamp_2
+          - light.hue_white_lamp_3
+        title: Lights
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - switch.plug2
+          - switch.plug3
+          - switch.plug4
+          - switch.plug5
+        title: Switches
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - sensor.front_door_battery
+          - sensor.front_door_last_activity
+          - sensor.front_door_last_ding
+          - sensor.front_door_last_motion
+          - sensor.front_door_volume
+          - sensor.hallway_volume
+        title: Doorbell
+        show_header_toggle: true
+  - path: kodi
+    title: Kodi
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - switch.livingroom_tv_switch
+          - switch.xbox
+          - script.launchkodi_philips
+          - script.launchnetflix_philips
+        title: Media
+        show_header_toggle: true
+      - type: media-control
+        entity: media_player.android_tv
+  - path: hadmin
+    title: Hadmin
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - script.restarthass
+        title: Status
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - sensor.esxi_status
+          - switch.wol
+          - sensor.broadlink_status
+          - sensor.tplink_status
+          - sensor.foscam_status
+          - sensor.bedroomtv_status
+          - sensor.huehub_status
+        title: Monitoring
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.speedtest_ping
+        title: Network
+        show_header_toggle: true
+  - path: cctv
+    title: CCTV
+    badges: []
+    cards:
+      - type: picture-entity
+        entity: camera.foscam
+      - type: picture-entity
+        entity: camera.front_door
+      - type: entities
+        entities:
+          - switch.camera_pan
+          - switch.camera_y
+          - switch.camera_x
+          - switch.camera_pan_y
+          - switch.camera_pan_x
+        title: Switch

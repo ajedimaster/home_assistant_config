@@ -1,13 +1,18 @@
-  - platform: kodi
+  # - platform: kodi
+  #   host: 192.168.1.11
+  - platform: androidtv
+    name: Android TV
     host: 192.168.1.11
-    turn_off_action: quit
-  - platform: kodi
-    host: 192.168.1.10
-    name: Jarvis
-  - platform: kodi
-    host: 192.168.1.98
-    name: Surface
-    #  - platform: webostv
-     #host: 192.168.1.99
-     #mac:C8:02:10:BC:09:E6
-     #name: Living Room TV
+    adb_server_ip: 127.0.0.1
+    adbkey: "/ssl/adbkey"
+    apps:
+      org.xbmc.kodi: "Kodi TV"
+      com.netflix.ninja: "Netflix TV"
+      org.droidtv.nettvapp4340: "iPlayer TV"
+
+
+#org.xbmc.kodi
+#com.netflix.ninja
+#org.droidtv.nettvapp4340  
+#{"entity_id": "media_player.android_tv", "command": "am start -n org.xbmc.kodi/.Splash"}
+#{"entity_id": "media_player.android_tv", "command": "am start -n com.netflix.ninja/.MainActivity"}

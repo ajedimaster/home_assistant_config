@@ -1,8 +1,6 @@
   - platform: broadlink
     host: 192.168.1.79
     mac: 34:EA:34:E4:72:7B
-    #monitored_conditions:
-    #  - 'temperature'
     switches:
     #plug1
       plug1:
@@ -19,7 +17,7 @@
         friendly_name: "Plug 3"
         command_on: 'sgkyAAYUBhQGFAYUBhQSBwYUEggFFBIIBhQSBwYTEgcSCBIHBhMGFAYUBhQGEwYUEgcSBwa8AAAAAAAA'
         command_off: 'shoyAAYTBhMGEwYUBhMSBwYTEgcGExIHBhMSBwYTEgcSBxIHBhMGEwYTBhMSBxIHBhMGFAa8AAAAAAAA'  
-    #plug4LG TV
+    #plug4
       plug4:
         friendly_name: "Plug 4"
         command_on: 'shUyAAYTBhQGFAYUBhQSBwYTEgcGFBIHBhMSCBIIEggGFBIHBhQGEwYUBhMGEwYUEgcSBwa9AAAAAAAA'
@@ -76,7 +74,7 @@
   - platform: command_line
     switches: 
       kodi_bedtime: 
-        command_on: curl -X POST -H "Content-Type:application/json" -d  '{"jsonrpc":"2.0", "method":"Player.Open", "params":{"item":{"file":"special://profile/playlists/video/Bedtime.xsp"} }, "id":1}'  http://192.168.1.11:8080/jsonrpc
+        command_on: curl -X POST -H "Content-Type:application/json" -d  '{"jsonrpc":"2.0", "method":"Player.Open", "params":{"item":{"file":"special://profile/playlists/video/m.xsp"} }, "id":1}'  http://192.168.1.11:8080/jsonrpc
         command_off: ""
       camera_pan:
         command_off: !secret camera_pan_off_url
@@ -95,5 +93,20 @@
         command_on: !secret camera_pan_x_on_url
 
   - platform: wake_on_lan
-    mac_address: "78-F2-9E-91-22-12"
+    mac: "78-F2-9E-91-22-12"
     name: "WOL"
+
+  - platform: template
+    switches:
+      livingroom_tv_switch:
+        friendly_name: Living Room TV
+        #value_template: "{{ is_state('device_tracker.54_2a_a2_c8_0e_38', 'home') }}"
+        value_template: "{{ is_state('media_player.android_tv', 'playing') or is_state('media_player.android_tv', 'paused') or is_state('media_player.android_tv', 'standby') }}"
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.tv_philips
+        turn_off: 
+          service: switch.turn_off
+          data:
+            entity_id: switch.tv_philips

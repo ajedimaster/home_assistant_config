@@ -10,18 +10,18 @@
   - data:
       message: BRRRRRR it's cold in here!
     service: persistent_notification.create
-- action:
+- id: '1519492611884'
+  alias: Too Hot
+  trigger:
+  - above: '28'
+    below: '40'
+    entity_id: sensor.broadlink_sensor_temperature
+    platform: numeric_state
+  condition: []
+  action:
   - data:
       message: It's getting hot in here!
     service: persistent_notification.create
-  alias: Too Hot
-  condition: []
-  id: '1519492611884'
-  trigger:
-  - above: '22'
-    below: '40'
-    entity_id: device_tracker.broadlink
-    platform: numeric_state
 - action:
   - data:
       message: Foscam Offline
@@ -131,50 +131,48 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: switch.plug3
+    entity_id: light.hue_white_lamp_2
     state: 'off'
   action:
-  - data:
-      entity_id: switch.plug3
-    service: switch.turn_on
+  - entity_id: light.hue_white_lamp_2
+    service: light.turn_on
 - id: '1538060549731'
   alias: Night Light Off
   trigger:
-  - at: '23:00:00'
+  - at: '22:00:00'
     platform: time
   condition: []
   action:
-  - data:
-      entity_id: switch.plug3
-    service: switch.turn_off
+  - entity_id: light.hue_white_lamp_2
+    service: light.turn_off
 - id: '1541782860748'
   alias: Night Light +5
   trigger:
   - event: sunset
     offset: 00:05:00
     platform: sun
-  condition: []
+  condition:
+  - condition: state
+    entity_id: light.hue_white_lamp_2
+    state: 'off'
   action:
-  - data:
-      entity_id: switch.plug3
-    service: switch.turn_on
+  - entity_id: light.hue_white_lamp_2
+    service: light.turn_on
 - id: '1541782974770'
   alias: Night Light Off -5
   trigger:
-  - at: '22:55:00'
+  - at: '21:55:00'
     platform: time
   condition: []
   action:
-  - data:
-      entity_id: switch.plug3
-    service: switch.turn_off
+  - entity_id: light.hue_white_lamp_2
+    service: light.turn_off
 - id: '1541783014363'
   alias: Night Light Off +5
   trigger:
-  - at: '23:05:00'
+  - at: '22:05:00'
     platform: time
   condition: []
   action:
-  - data:
-      entity_id: switch.plug3
-    service: switch.turn_off
+  - entity_id: light.hue_white_lamp_2
+    service: light.turn_off
